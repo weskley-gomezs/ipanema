@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { SiteTheme } from '../types';
 
@@ -10,19 +11,19 @@ const CollectionCategories: React.FC<CollectionCategoriesProps> = ({ theme }) =>
     {
       title: 'Feminino',
       description: 'Leveza e elegância em cada passo.',
-      image: 'https://images.unsplash.com/photo-1515377662630-6c75cc922190?q=80&w=2070&auto=format&fit=crop',
+      image: 'https://instagram.fbsb24-1.fna.fbcdn.net/v/t39.30808-6/600347808_1167664028908370_459852217892285797_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzc4OTg0ODg5MjcxMjQ3NjgzMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=fOTAQrIKEbkQ7kNvwH0szkP&_nc_oc=AdmwvlawgVlx_ZpHqI2iLaxcIG0FffYMTGy4RsQT8EMC5tmAqu3ilf-_6QhT6bJVfoEd-avPOisiyWhtuf5Qrz8b&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbsb24-1.fna&_nc_gid=kP3LdX7mY19cHlcDWOutpA&oh=00_AfnzGULEKwCy_C_cl2-4_-V9sI3-tbu3h50WMTmc1Ra5EA&oe=6951D9A7',
       accentColor: 'bg-pink-300'
     },
     {
       title: 'Masculino',
       description: 'Conforto essencial para o dia a dia.',
-      image: 'https://images.unsplash.com/photo-1534105151522-86f78479e0a0?q=80&w=1974&auto=format&fit=crop',
+      image: 'https://i.imgur.com/ADl6g6E.jpeg',
       accentColor: 'bg-blue-300'
     },
     {
       title: 'Unissex',
       description: 'Estilo sem fronteiras para todos.',
-      image: 'https://images.unsplash.com/photo-1523381235312-3f182e0f9510?q=80&w=2071&auto=format&fit=crop', 
+      image: 'https://i.imgur.com/nzLlBfF.jpeg', 
       accentColor: 'bg-gray-300'
     }
   ];
