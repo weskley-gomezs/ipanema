@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -41,7 +42,7 @@ const App: React.FC = () => {
               <VideoShowcase />
 
               {/* AI Assistant Section - A Helping Foot */}
-              <AIAssistant />
+              <AIAssistant theme={theme} />
 
               {/* Style Inspirations Section */}
               <StyleInspirations theme={theme} />
@@ -94,7 +95,13 @@ const App: React.FC = () => {
                         placeholder="Seu melhor e-mail" 
                         className="flex-1 px-8 py-5 rounded-full border-none focus:ring-2 focus:ring-pink-200 outline-none shadow-sm"
                       />
-                      <button className="px-10 py-5 bg-gray-900 text-white rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-gray-800 transition-all shadow-xl">
+                      <button className={`px-10 py-5 bg-gray-900 text-white rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-gray-800 transition-all shadow-xl ${
+                        theme === 'pink' ? 'focus:ring-pink-200' :
+                        theme === 'blue' ? 'focus:ring-blue-200' :
+                        theme === 'mint' ? 'focus:ring-green-200' :
+                        theme === 'lavender' ? 'focus:ring-purple-200' :
+                        'focus:ring-pink-200'
+                      }`}>
                         Assinar
                       </button>
                     </form>
@@ -112,7 +119,13 @@ const App: React.FC = () => {
                       alt="Estilo de vida Ipanema" 
                       className="rounded-[4rem] shadow-3xl relative z-10 w-full object-cover aspect-[4/5] transition-transform duration-[2s] group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-pink-100/30 rounded-[4rem] -rotate-3 -z-0"></div>
+                    <div className={`absolute inset-0 rounded-[4rem] -rotate-3 -z-0 transition-colors duration-700 ${
+                      theme === 'pink' ? 'bg-pink-100/30' :
+                      theme === 'blue' ? 'bg-blue-100/30' :
+                      theme === 'mint' ? 'bg-green-100/30' :
+                      theme === 'lavender' ? 'bg-purple-100/30' :
+                      'bg-pink-100/30'
+                    }`}></div>
                   </div>
                 </div>
                 <div className="lg:w-1/2 text-left">
