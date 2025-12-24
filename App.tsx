@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -6,6 +5,7 @@ import CollectionCategories from './components/CollectionCategories';
 import VideoShowcase from './components/VideoShowcase';
 import ProductCard from './components/ProductCard';
 import StyleInspirations from './components/StyleInspirations';
+import AIAssistant from './components/AIAssistant';
 import LoadingScreen from './components/LoadingScreen';
 import { PRODUCTS } from './constants';
 import { SiteTheme } from './types';
@@ -18,6 +18,7 @@ const App: React.FC = () => {
     switch (theme) {
       case 'pink': return 'theme-pink selection:bg-pink-100 selection:text-pink-600';
       case 'blue': return 'theme-blue selection:bg-blue-100 selection:text-blue-600';
+      case 'mint': return 'theme-mint selection:bg-green-100 selection:text-green-600';
       default: return 'theme-default selection:bg-pink-100 selection:text-pink-600';
     }
   };
@@ -33,20 +34,35 @@ const App: React.FC = () => {
           <main>
             <Hero activeTheme={theme} />
 
-            <CollectionCategories theme={theme} />
+            <div className="bg-waves">
+              <CollectionCategories theme={theme} />
+              
+              <VideoShowcase />
 
-            <VideoShowcase />
+              {/* AI Assistant Section - A Helping Foot */}
+              <AIAssistant />
 
-            {/* Style Inspirations Section (Replacing AI Assistant) */}
-            <StyleInspirations theme={theme} />
+              {/* Style Inspirations Section */}
+              <StyleInspirations theme={theme} />
+            </div>
 
             {/* Product Collection */}
-            <section id="colecao" className={`py-40 transition-colors duration-700 ${theme === 'blue' ? 'bg-blue-50/20' : 'bg-pink-50/20'}`}>
+            <section id="colecao" className={`py-40 transition-colors duration-700 ${
+              theme === 'blue' ? 'bg-blue-50/20' : 
+              theme === 'pink' ? 'bg-pink-50/20' : 
+              theme === 'mint' ? 'bg-green-50/20' : 
+              'bg-gray-50/20'
+            }`}>
               <div className="container mx-auto px-4 max-w-7xl">
                 <div className="text-center mb-32">
                   <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.5em] mb-6 block">Escolha seu par</span>
                   <h2 className="text-6xl font-black text-gray-900 mb-8 tracking-tighter font-hero italic">A Coleção Pastéis</h2>
-                  <div className={`w-32 h-1 mx-auto rounded-full transition-all duration-500 ${theme === 'pink' ? 'bg-pink-300' : theme === 'blue' ? 'bg-blue-300' : 'bg-gray-200'}`}></div>
+                  <div className={`w-32 h-1 mx-auto rounded-full transition-all duration-500 ${
+                    theme === 'pink' ? 'bg-pink-300' : 
+                    theme === 'blue' ? 'bg-blue-300' : 
+                    theme === 'mint' ? 'bg-green-300' : 
+                    'bg-gray-200'
+                  }`}></div>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
@@ -60,7 +76,12 @@ const App: React.FC = () => {
             {/* Newsletter Section */}
             <section className="py-32 bg-white relative overflow-hidden">
                <div className="container mx-auto px-6 max-w-5xl">
-                  <div className={`rounded-[4rem] p-16 text-center transition-colors duration-700 ${theme === 'pink' ? 'bg-pink-50' : theme === 'blue' ? 'bg-blue-50' : 'bg-gray-50'}`}>
+                  <div className={`rounded-[4rem] p-16 text-center transition-colors duration-700 ${
+                    theme === 'pink' ? 'bg-pink-50' : 
+                    theme === 'blue' ? 'bg-blue-50' : 
+                    theme === 'mint' ? 'bg-green-50' : 
+                    'bg-gray-50'
+                  }`}>
                     <h2 className="text-4xl font-black text-gray-900 mb-6 font-hero">Ipanema Club</h2>
                     <p className="text-gray-500 text-lg mb-10 max-w-md mx-auto">Receba novidades, dicas de estilo e promoções exclusivas diretamente no seu email.</p>
                     <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onSubmit={(e) => e.preventDefault()}>
@@ -87,7 +108,7 @@ const App: React.FC = () => {
                       alt="Estilo de vida Ipanema" 
                       className="rounded-[4rem] shadow-3xl relative z-10 w-full object-cover aspect-[4/5] transition-transform duration-[2s] group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-pink-100 rounded-[4rem] -rotate-3 -z-0"></div>
+                    <div className="absolute inset-0 bg-pink-100/30 rounded-[4rem] -rotate-3 -z-0"></div>
                   </div>
                 </div>
                 <div className="lg:w-1/2 text-left">
@@ -110,9 +131,19 @@ const App: React.FC = () => {
             </section>
           </main>
 
-          <footer className={`py-32 border-t transition-colors duration-700 ${theme === 'blue' ? 'bg-blue-50 border-blue-100' : 'bg-pink-50 border-pink-100'}`}>
+          <footer className={`py-32 border-t transition-colors duration-700 ${
+            theme === 'blue' ? 'bg-blue-50 border-blue-100' : 
+            theme === 'pink' ? 'bg-pink-50 border-pink-100' : 
+            theme === 'mint' ? 'bg-green-50 border-green-100' : 
+            'bg-gray-50 border-gray-100'
+          }`}>
             <div className="container mx-auto px-4 text-center">
-              <span className={`text-4xl font-black tracking-[0.5em] mb-12 block transition-all duration-700 hover:scale-110 cursor-default ${theme === 'pink' ? 'text-pink-400' : theme === 'blue' ? 'text-blue-400' : 'text-pink-400'}`}>IPANEMA</span>
+              <span className={`text-4xl font-black tracking-[0.5em] mb-12 block transition-all duration-700 hover:scale-110 cursor-default ${
+                theme === 'pink' ? 'text-pink-400' : 
+                theme === 'blue' ? 'text-blue-400' : 
+                theme === 'mint' ? 'text-green-400' : 
+                'text-pink-400'
+              }`}>IPANEMA</span>
               <div className="flex flex-wrap justify-center gap-12 mb-20 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
                 <a href="#" className="hover:text-gray-900 transition-colors">Produtos</a>
                 <a href="#" className="hover:text-gray-900 transition-colors">Sustentabilidade</a>

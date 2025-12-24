@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Product } from '../types';
 
@@ -11,7 +10,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     switch(product.color) {
       case 'pink': return 'bg-pink-50/50';
       case 'blue': return 'bg-blue-50/50';
+      case 'mint': return 'bg-green-50/50';
+      case 'lavender': return 'bg-purple-50/50';
       default: return 'bg-gray-50';
+    }
+  };
+
+  const getAccentColor = () => {
+    switch(product.color) {
+      case 'pink': return 'group-hover:text-pink-400';
+      case 'blue': return 'group-hover:text-blue-400';
+      case 'mint': return 'group-hover:text-green-400';
+      case 'lavender': return 'group-hover:text-purple-400';
+      default: return 'group-hover:text-gray-900';
     }
   };
 
@@ -38,7 +49,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
       
       <div className="text-center">
-        <h3 className="text-sm font-black uppercase tracking-[0.3em] text-gray-900 mb-2 group-hover:text-pink-400 transition-colors">{product.name}</h3>
+        <h3 className={`text-sm font-black uppercase tracking-[0.3em] text-gray-900 mb-2 transition-colors ${getAccentColor()}`}>
+          {product.name}
+        </h3>
         <p className="text-[11px] font-semibold text-gray-400 mb-4 tracking-widest italic">{product.description}</p>
         <div className="flex items-center justify-center gap-3">
           <span className="w-8 h-[1px] bg-gray-200"></span>

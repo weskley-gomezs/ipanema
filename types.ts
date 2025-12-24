@@ -3,8 +3,8 @@ export interface Product {
   name: string;
   price: number;
   image: string;
-  color: 'pink' | 'blue' | 'white';
+  color: 'pink' | 'blue' | 'white' | 'mint' | 'lavender';
   description: string;
 }
 
-export type SiteTheme = 'default' | 'pink' | 'blue';
+export type SiteTheme = 'default' | 'pink' | 'blue' | 'mint';

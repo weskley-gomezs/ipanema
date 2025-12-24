@@ -1,4 +1,3 @@
-
 import { Product } from './types';
 
 export const PRODUCTS: Product[] = [
@@ -36,19 +35,19 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '5',
-    name: 'Ipanema Oasis Nude',
-    price: 59.90,
+    name: 'Ipanema Anatomic Mint',
+    price: 64.90,
     image: 'https://www.lojagrendene.com.br/ccstore/v1/images/?source=/file/v2820162594973259744/products/cor.27457.27457BV21513_o.jpg&height=550&width=550',
-    color: 'pink',
-    description: 'Tons de areia e rosa pálido que evocam o pôr do sol em Ipanema.'
+    color: 'mint',
+    description: 'O frescor do Verde Menta para renovar suas energias a cada passo.'
   },
   {
     id: '6',
-    name: 'Ipanema Anatomic Breeze',
-    price: 64.90,
+    name: 'Ipanema Class Charm Lavender',
+    price: 59.90,
     image: 'https://www.lojagrendene.com.br/ccstore/v1/images/?source=/file/v7337226367063938192/products/cor.19331.19331BW60313_o.jpg&height=550&width=550',
-    color: 'blue',
-    description: 'A brisa do mar transformada em sandália para o seu conforto máximo.'
+    color: 'lavender',
+    description: 'Sofisticação em Lavanda Suave para momentos de pura leveza.'
   }
 ];
 

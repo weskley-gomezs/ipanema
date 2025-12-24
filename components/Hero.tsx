@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { SiteTheme } from '../types';
 
@@ -24,7 +23,8 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
   const phrases = [
     "com leveza.",
     "com o pé direito.",
-    "com tons pastéis."
+    "em tons pastéis.",
+    "com frescor."
   ];
 
   useEffect(() => {
@@ -52,23 +52,38 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum, typingSpeed]);
 
+  const getOverlayColor = () => {
+    switch (activeTheme) {
+      case 'pink': return 'bg-pink-100/40';
+      case 'blue': return 'bg-blue-100/40';
+      case 'mint': return 'bg-green-100/40';
+      default: return 'bg-black/10';
+    }
+  };
+
+  const getButtonColor = () => {
+    switch (activeTheme) {
+      case 'pink': return 'bg-pink-400';
+      case 'blue': return 'bg-blue-400';
+      case 'mint': return 'bg-green-400';
+      default: return 'bg-gray-900';
+    }
+  };
+
   return (
-    <section id="home" className="relative min-h-[115vh] flex items-center justify-center overflow-hidden pt-32 pb-40">
+    <section id="home" className="relative min-h-[110vh] flex items-center justify-center overflow-hidden pt-32 pb-40">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         <div 
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ backgroundImage: `url(${HERO_IMG_URL})` }}
         />
-        <div className={`absolute inset-0 transition-colors duration-1000 ${
-          activeTheme === 'pink' ? 'bg-pink-100/40' : 
-          activeTheme === 'blue' ? 'bg-blue-100/40' : 
-          'bg-black/10'
-        }`} />
+        <div className={`absolute inset-0 transition-colors duration-1000 ${getOverlayColor()}`} />
         
         {/* Animated Orbs */}
         <div className="absolute top-1/3 -left-20 w-96 h-96 bg-pink-200/30 rounded-full blur-[100px] animate-floating" />
         <div className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-blue-200/30 rounded-full blur-[120px] animate-floating" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-green-100/20 rounded-full blur-[150px] animate-floating" style={{ animationDelay: '4s' }} />
       </div>
 
       <div className="container mx-auto px-6 z-10 flex flex-col items-center text-center">
@@ -94,7 +109,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a href="#colecao" className={`group relative px-12 py-5 text-white rounded-full font-bold text-[11px] uppercase tracking-[0.3em] overflow-hidden transition-all shadow-2xl hover:scale-105 active:scale-95 animate-btn-shine ${activeTheme === 'pink' ? 'bg-pink-400' : activeTheme === 'blue' ? 'bg-blue-400' : 'bg-gray-900'}`}>
+            <a href="#colecao" className={`group relative px-12 py-5 text-white rounded-full font-bold text-[11px] uppercase tracking-[0.3em] overflow-hidden transition-all shadow-2xl hover:scale-105 active:scale-95 animate-btn-shine ${getButtonColor()}`}>
               <span className="relative z-10">Explorar Modelos</span>
             </a>
           </div>
