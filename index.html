@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -72,15 +73,6 @@
       }
       .animate-floating { animation: floating 6s ease-in-out infinite; }
 
-      @keyframes cockroach {
-        0% { transform: translate(0, 0) rotate(0deg); }
-        15% { transform: translate(30px, 15px) rotate(10deg); }
-        30% { transform: translate(-20px, 40px) rotate(-8deg); }
-        60% { transform: translate(40px, -10px) rotate(15deg); }
-        100% { transform: translate(0, 0) rotate(0deg); }
-      }
-      .animate-cockroach { animation: cockroach 3s infinite linear; }
-
       @keyframes strike-down {
         0% { transform: scale(3) translateY(-600px) rotate(-45deg); opacity: 0; }
         40% { transform: scale(1) translateY(0) rotate(0deg); opacity: 1; }
@@ -94,12 +86,6 @@
         background-size: 80px 40px;
       }
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: #f9fafb; }
-      ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
-      ::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
-
       .glass-card {
         background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(24px);
@@ -107,7 +93,6 @@
         border: 1px solid rgba(255, 255, 255, 0.6);
       }
 
-      /* Solar Pulse Effect */
       .solar-pulse {
         position: fixed;
         top: -10%;
@@ -143,5 +128,6 @@
   <body>
     <div class="solar-pulse"></div>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

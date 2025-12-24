@@ -6,6 +6,7 @@ import CollectionCategories from './components/CollectionCategories';
 import VideoShowcase from './components/VideoShowcase';
 import ProductCard from './components/ProductCard';
 import StyleInspirations from './components/StyleInspirations';
+import AIAssistant from './components/AIAssistant';
 import LoadingScreen from './components/LoadingScreen';
 import { PRODUCTS } from './constants';
 import { SiteTheme } from './types';
@@ -73,6 +74,9 @@ const App: React.FC = () => {
               {/* Inspirations Section */}
               <StyleInspirations theme={theme} />
             </div>
+
+            {/* AI Stylist Assistant */}
+            <AIAssistant theme={theme} />
 
             {/* Product Collection */}
             <section id="colecao" className={`py-40 transition-colors duration-700 ${
