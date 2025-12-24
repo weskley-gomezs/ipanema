@@ -12,10 +12,10 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ theme }) => {
   const [loading, setLoading] = useState(false);
 
   const suggestions = [
-    "Look Verde Menta",
-    "Estilo com Lavanda",
-    "Pôr do sol no Rio",
-    "Como usar linho?",
+    "Look de Linho & Ipanema",
+    "Menta vs Lavanda: como combinar?",
+    "Estilo Pôr do Sol no Arpoador",
+    "Conforto Chic para o dia a dia",
   ];
 
   const handleSubmit = async (e?: React.FormEvent, manualPrompt?: string) => {
@@ -43,21 +43,21 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ theme }) => {
 
   const getFocusClass = () => {
     switch(theme) {
-      case 'pink': return 'focus:border-pink-200';
-      case 'blue': return 'focus:border-blue-200';
-      case 'mint': return 'focus:border-green-200';
-      case 'lavender': return 'focus:border-purple-200';
-      default: return 'focus:border-pink-200';
+      case 'pink': return 'focus:border-pink-200 focus:ring-pink-100';
+      case 'blue': return 'focus:border-blue-200 focus:ring-blue-100';
+      case 'mint': return 'focus:border-green-200 focus:ring-green-100';
+      case 'lavender': return 'focus:border-purple-200 focus:ring-purple-100';
+      default: return 'focus:border-pink-200 focus:ring-pink-100';
     }
   };
 
   const getButtonClass = () => {
     switch(theme) {
-      case 'pink': return 'hover:bg-pink-400';
-      case 'blue': return 'hover:bg-blue-400';
-      case 'mint': return 'hover:bg-green-400';
-      case 'lavender': return 'hover:bg-purple-400';
-      default: return 'hover:bg-pink-400';
+      case 'pink': return 'hover:bg-pink-500 bg-pink-400';
+      case 'blue': return 'hover:bg-blue-500 bg-blue-400';
+      case 'mint': return 'hover:bg-green-600 bg-green-500';
+      case 'lavender': return 'hover:bg-purple-500 bg-purple-400';
+      default: return 'bg-gray-900 hover:bg-gray-800';
     }
   };
 
@@ -114,7 +114,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ theme }) => {
             <button
               type="submit"
               disabled={loading}
-              className={`absolute right-3 top-3 bottom-3 bg-gray-900 text-white px-10 rounded-[1.5rem] font-black uppercase tracking-[0.2em] text-[10px] transition-all duration-500 shadow-xl disabled:opacity-50 overflow-hidden ${getButtonClass()}`}
+              className={`absolute right-3 top-3 bottom-3 text-white px-10 rounded-[1.5rem] font-black uppercase tracking-[0.2em] text-[10px] transition-all duration-500 shadow-xl disabled:opacity-50 overflow-hidden ${getButtonClass()}`}
             >
               {loading ? 'Sincronizando...' : 'Consultar'}
             </button>

@@ -24,6 +24,16 @@ const App: React.FC = () => {
     }
   };
 
+  const getGlobalAccent = () => {
+    switch(theme) {
+      case 'pink': return 'bg-pink-400';
+      case 'blue': return 'bg-blue-400';
+      case 'mint': return 'bg-green-500';
+      case 'lavender': return 'bg-purple-400';
+      default: return 'bg-gray-900';
+    }
+  };
+
   const getButtonHoverClass = () => {
     switch(theme) {
       case 'pink': return 'hover:bg-pink-500';
@@ -31,6 +41,16 @@ const App: React.FC = () => {
       case 'mint': return 'hover:bg-green-600';
       case 'lavender': return 'hover:bg-purple-500';
       default: return 'hover:bg-gray-800';
+    }
+  };
+
+  const getFocusRingClass = () => {
+    switch(theme) {
+      case 'pink': return 'focus:ring-pink-200';
+      case 'blue': return 'focus:ring-blue-200';
+      case 'mint': return 'focus:ring-green-200';
+      case 'lavender': return 'focus:ring-purple-200';
+      default: return 'focus:ring-gray-200';
     }
   };
 
@@ -102,15 +122,9 @@ const App: React.FC = () => {
                       <input 
                         type="email" 
                         placeholder="Seu melhor e-mail" 
-                        className="flex-1 px-8 py-5 rounded-full border-none focus:ring-2 focus:ring-opacity-50 outline-none shadow-sm"
+                        className={`flex-1 px-8 py-5 rounded-full border-none focus:ring-2 outline-none shadow-sm ${getFocusRingClass()}`}
                       />
-                      <button className={`px-10 py-5 bg-gray-900 text-white rounded-full font-black uppercase tracking-widest text-[10px] transition-all shadow-xl ${getButtonHoverClass()} ${
-                        theme === 'pink' ? 'focus:ring-pink-200' :
-                        theme === 'blue' ? 'focus:ring-blue-200' :
-                        theme === 'mint' ? 'focus:ring-green-200' :
-                        theme === 'lavender' ? 'focus:ring-purple-200' :
-                        'focus:ring-pink-200'
-                      }`}>
+                      <button className={`px-10 py-5 text-white rounded-full font-black uppercase tracking-widest text-[10px] transition-all shadow-xl ${getGlobalAccent()} ${getButtonHoverClass()}`}>
                         Assinar
                       </button>
                     </form>
@@ -148,7 +162,7 @@ const App: React.FC = () => {
                     </p>
                   </div>
                   <div className="mt-16">
-                    <button className="px-12 py-6 bg-gray-900 text-white rounded-full font-black uppercase tracking-[0.3em] text-[10px] hover:scale-105 transition-all shadow-2xl">
+                    <button className={`px-12 py-6 text-white rounded-full font-black uppercase tracking-[0.3em] text-[10px] transition-all shadow-2xl ${getGlobalAccent()} ${getButtonHoverClass()} hover:scale-105`}>
                       Conheça nossa Jornada
                     </button>
                   </div>
