@@ -28,7 +28,7 @@
       .font-display { font-family: 'Playfair Display', serif; }
       .font-hero { font-family: 'Abril Fatface', cursive; }
 
-      /* Transições globais de tema */
+      /* Global theme transitions */
       .theme-pink { --current-bg: var(--pastel-pink); --current-accent: var(--accent-pink); }
       .theme-blue { --current-bg: var(--pastel-blue); --current-accent: var(--accent-blue); }
       .theme-default { --current-bg: #fff; --current-accent: #111827; }
@@ -83,17 +83,37 @@
       }
       .animate-strike-hit { animation: strike-down 0.4s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
-      /* Scrollbar Customizada */
+      /* Custom Scrollbar */
       ::-webkit-scrollbar { width: 8px; }
       ::-webkit-scrollbar-track { background: #f9fafb; }
       ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
       ::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
 
       .glass-card {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      /* Solar Pulse Effect */
+      .solar-pulse {
+        position: fixed;
+        top: -10%;
+        right: -10%;
+        width: 60vw;
+        height: 60vw;
+        background: radial-gradient(circle, rgba(255,247,237,0.4) 0%, rgba(255,255,255,0) 70%);
+        border-radius: 50%;
+        filter: blur(100px);
+        z-index: -1;
+        pointer-events: none;
+        animation: solar-breathe 15s ease-in-out infinite;
+      }
+
+      @keyframes solar-breathe {
+        0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.3; }
+        50% { transform: scale(1.1) translate(-2%, 2%); opacity: 0.6; }
       }
     </style>
   <script type="importmap">
@@ -110,6 +130,7 @@
 </script>
 </head>
   <body>
+    <div class="solar-pulse"></div>
     <div id="root"></div>
   </body>
 </html>

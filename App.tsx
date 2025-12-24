@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import CollectionCategories from './components/CollectionCategories';
 import VideoShowcase from './components/VideoShowcase';
 import ProductCard from './components/ProductCard';
-import AIAssistant from './components/AIAssistant';
+import StyleInspirations from './components/StyleInspirations';
 import LoadingScreen from './components/LoadingScreen';
 import { PRODUCTS } from './constants';
 import { SiteTheme } from './types';
@@ -33,21 +33,23 @@ const App: React.FC = () => {
           <main>
             <Hero activeTheme={theme} />
 
-            {/* Sessão: Categorias Masculino, Feminino, Unissex */}
             <CollectionCategories theme={theme} />
 
-            {/* Nova Sessão: Vídeo da Campanha */}
             <VideoShowcase />
 
-            {/* Product Collection - Fundo Suave */}
-            <section id="colecao" className={`py-32 transition-colors duration-700 ${theme === 'blue' ? 'bg-blue-50/30' : 'bg-pink-50/30'}`}>
+            {/* Style Inspirations Section (Replacing AI Assistant) */}
+            <StyleInspirations theme={theme} />
+
+            {/* Product Collection */}
+            <section id="colecao" className={`py-40 transition-colors duration-700 ${theme === 'blue' ? 'bg-blue-50/20' : 'bg-pink-50/20'}`}>
               <div className="container mx-auto px-4 max-w-7xl">
-                <div className="text-center mb-24">
-                  <h2 className="text-5xl font-bold text-gray-800 mb-6 tracking-tight">Escolha sua Ipanema</h2>
-                  <div className={`w-24 h-1.5 mx-auto rounded-full transition-all duration-500 ${theme === 'pink' ? 'bg-pink-400' : theme === 'blue' ? 'bg-blue-400' : 'bg-pink-200'}`}></div>
+                <div className="text-center mb-32">
+                  <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.5em] mb-6 block">Escolha seu par</span>
+                  <h2 className="text-6xl font-black text-gray-900 mb-8 tracking-tighter font-hero italic">A Coleção Pastéis</h2>
+                  <div className={`w-32 h-1 mx-auto rounded-full transition-all duration-500 ${theme === 'pink' ? 'bg-pink-300' : theme === 'blue' ? 'bg-blue-300' : 'bg-gray-200'}`}></div>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
                   {PRODUCTS.map(product => (
                     <ProductCard key={product.id} product={product} />
                   ))}
@@ -55,36 +57,52 @@ const App: React.FC = () => {
               </div>
             </section>
 
-            {/* Consultor de Moda IA */}
-            <AIAssistant />
+            {/* Newsletter Section */}
+            <section className="py-32 bg-white relative overflow-hidden">
+               <div className="container mx-auto px-6 max-w-5xl">
+                  <div className={`rounded-[4rem] p-16 text-center transition-colors duration-700 ${theme === 'pink' ? 'bg-pink-50' : theme === 'blue' ? 'bg-blue-50' : 'bg-gray-50'}`}>
+                    <h2 className="text-4xl font-black text-gray-900 mb-6 font-hero">Ipanema Club</h2>
+                    <p className="text-gray-500 text-lg mb-10 max-w-md mx-auto">Receba novidades, dicas de estilo e promoções exclusivas diretamente no seu email.</p>
+                    <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onSubmit={(e) => e.preventDefault()}>
+                      <input 
+                        type="email" 
+                        placeholder="Seu melhor e-mail" 
+                        className="flex-1 px-8 py-5 rounded-full border-none focus:ring-2 focus:ring-pink-200 outline-none shadow-sm"
+                      />
+                      <button className="px-10 py-5 bg-gray-900 text-white rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-gray-800 transition-all shadow-xl">
+                        Assinar
+                      </button>
+                    </form>
+                  </div>
+               </div>
+            </section>
 
-            {/* Mission / About Section */}
-            <section id="sobre" className="py-40 bg-white relative overflow-hidden">
+            {/* Manifesto Section */}
+            <section id="sobre" className="py-40 bg-white relative">
               <div className="container mx-auto px-6 max-w-7xl flex flex-col lg:flex-row items-center gap-24">
                 <div className="lg:w-1/2">
                   <div className="relative group">
                     <img 
                       src="https://images.unsplash.com/photo-1590673885247-aa7f509ddfa4?q=80&w=2070&auto=format&fit=crop" 
                       alt="Estilo de vida Ipanema" 
-                      className="rounded-[4rem] shadow-3xl relative z-10 w-full object-cover aspect-[4/5] transition-transform duration-700 group-hover:scale-[1.02]"
+                      className="rounded-[4rem] shadow-3xl relative z-10 w-full object-cover aspect-[4/5] transition-transform duration-[2s] group-hover:scale-105"
                     />
-                    <div className={`absolute -top-16 -left-16 w-56 h-56 rounded-full -z-0 transition-all duration-700 blur-2xl opacity-40 group-hover:scale-125 ${theme === 'blue' ? 'bg-blue-200' : 'bg-blue-100'}`}></div>
-                    <div className={`absolute -bottom-16 -right-16 w-80 h-80 rounded-full -z-0 transition-all duration-700 blur-2xl opacity-40 group-hover:scale-125 ${theme === 'pink' ? 'bg-pink-200' : 'bg-pink-100'}`}></div>
+                    <div className="absolute inset-0 bg-pink-100 rounded-[4rem] -rotate-3 -z-0"></div>
                   </div>
                 </div>
                 <div className="lg:w-1/2 text-left">
-                  <h2 className="text-5xl font-black text-gray-900 mb-12 leading-[1.2] tracking-tight">Começar com o pé direito é uma escolha diária.</h2>
-                  <div className="space-y-8">
-                    <p className="text-gray-600 text-xl leading-relaxed">
-                      Na Ipanema, acreditamos que a moda deve ser leve, democrática e cheia de boas energias. Nossa nova coleção em tons pastéis foi desenhada para quem valoriza o conforto e a suavidade em cada passo.
+                  <h2 className="text-6xl font-black text-gray-900 mb-12 leading-[1.1] tracking-tighter font-hero">O amanhã começa com leveza.</h2>
+                  <div className="space-y-10">
+                    <p className="text-gray-500 text-xl leading-relaxed font-medium">
+                      A Ipanema nasceu nas areias do Rio para ganhar o mundo. Nossa missão é democratizar a moda, trazendo conforto e as cores do verão para o seu cotidiano, não importa onde você esteja.
                     </p>
-                    <p className="text-gray-600 text-xl leading-relaxed">
-                      Cada par é fabricado com materiais 100% recicláveis, reafirmando nosso compromisso com o planeta enquanto cuidamos dos seus passos. É a alma do Rio, para os pés do mundo.
+                    <p className="text-gray-500 text-xl leading-relaxed font-medium">
+                      Compromisso real: Nossas sandálias são 100% veganas e recicláveis. Porque para começar com o pé direito, precisamos cuidar do chão que pisamos.
                     </p>
                   </div>
                   <div className="mt-16">
-                    <button className={`relative px-12 py-5 text-white rounded-full font-black uppercase tracking-[0.3em] text-[11px] transition-all shadow-xl hover:scale-110 active:scale-95 overflow-hidden animate-btn-shine ${theme === 'pink' ? 'bg-pink-400 shadow-pink-100 hover:shadow-pink-200' : theme === 'blue' ? 'bg-blue-400 shadow-blue-100 hover:shadow-blue-200' : 'bg-gray-900 hover:bg-pink-400 shadow-gray-100 hover:shadow-pink-200'}`}>
-                      <span className="relative z-10">Nossa Sustentabilidade</span>
+                    <button className="px-12 py-6 bg-gray-900 text-white rounded-full font-black uppercase tracking-[0.3em] text-[10px] hover:scale-105 transition-all shadow-2xl">
+                      Conheça nossa Jornada
                     </button>
                   </div>
                 </div>
@@ -92,26 +110,23 @@ const App: React.FC = () => {
             </section>
           </main>
 
-          {/* Footer */}
           <footer className={`py-32 border-t transition-colors duration-700 ${theme === 'blue' ? 'bg-blue-50 border-blue-100' : 'bg-pink-50 border-pink-100'}`}>
             <div className="container mx-auto px-4 text-center">
-              <span className={`text-3xl font-black tracking-[0.5em] mb-10 block transition-all duration-700 hover:scale-110 cursor-default ${theme === 'pink' ? 'text-pink-400' : theme === 'blue' ? 'text-blue-400' : 'text-pink-400'}`}>IPANEMA</span>
-              <p className="text-gray-400 text-base max-w-lg mx-auto mb-12 leading-relaxed tracking-wide">A marca que leva a essência vibrante e solar do Rio de Janeiro para o mundo, com conforto, sustentabilidade e estilo incomparáveis.</p>
-              <div className="flex justify-center space-x-12 mb-16">
-                <a href="#" className="group relative text-gray-500 font-bold uppercase tracking-widest text-xs hover:text-pink-400 transition-all duration-300 hover:scale-110">
-                  Instagram
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#" className="group relative text-gray-500 font-bold uppercase tracking-widest text-xs hover:text-blue-400 transition-all duration-300 hover:scale-110">
-                  Facebook
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#" className="group relative text-gray-500 font-bold uppercase tracking-widest text-xs hover:text-gray-900 transition-all duration-300 hover:scale-110">
-                  Pinterest
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+              <span className={`text-4xl font-black tracking-[0.5em] mb-12 block transition-all duration-700 hover:scale-110 cursor-default ${theme === 'pink' ? 'text-pink-400' : theme === 'blue' ? 'text-blue-400' : 'text-pink-400'}`}>IPANEMA</span>
+              <div className="flex flex-wrap justify-center gap-12 mb-20 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
+                <a href="#" className="hover:text-gray-900 transition-colors">Produtos</a>
+                <a href="#" className="hover:text-gray-900 transition-colors">Sustentabilidade</a>
+                <a href="#" className="hover:text-gray-900 transition-colors">Lojas</a>
+                <a href="#" className="hover:text-gray-900 transition-colors">Fale Conosco</a>
               </div>
-              <p className="text-gray-400 text-xs font-medium uppercase tracking-[0.2em]">&copy; 2026 Ipanema - Grendene S/A. Todos os direitos reservados.</p>
+              <div className="flex justify-center space-x-12 mb-16">
+                {['Instagram', 'Facebook', 'Pinterest', 'YouTube'].map(social => (
+                  <a key={social} href="#" className="group relative text-gray-400 font-bold uppercase tracking-widest text-[10px] hover:text-gray-900 transition-all">
+                    {social}
+                  </a>
+                ))}
+              </div>
+              <p className="text-gray-300 text-[10px] font-medium uppercase tracking-[0.2em]">&copy; 2026 Ipanema - Grendene S/A. Inspirado pelo Sol do Rio.</p>
             </div>
           </footer>
         </div>

@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
   }, [text, isDeleting, loopNum, typingSpeed]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative min-h-[115vh] flex items-center justify-center overflow-hidden pt-32 pb-40">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         <div 
@@ -97,14 +97,11 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
             <a href="#colecao" className={`group relative px-12 py-5 text-white rounded-full font-bold text-[11px] uppercase tracking-[0.3em] overflow-hidden transition-all shadow-2xl hover:scale-105 active:scale-95 animate-btn-shine ${activeTheme === 'pink' ? 'bg-pink-400' : activeTheme === 'blue' ? 'bg-blue-400' : 'bg-gray-900'}`}>
               <span className="relative z-10">Explorar Modelos</span>
             </a>
-            <a href="#dicas" className="px-10 py-5 text-white/90 border border-white/30 rounded-full font-bold text-[11px] uppercase tracking-[0.3em] backdrop-blur-md hover:bg-white hover:text-gray-900 transition-all">
-              Consultoria de Estilo
-            </a>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-40 animate-bounce text-white cursor-pointer" onClick={() => document.getElementById('colecao')?.scrollIntoView()}>
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-40 animate-bounce text-white cursor-pointer" onClick={() => document.getElementById('colecao')?.scrollIntoView()}>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>

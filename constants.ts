@@ -51,3 +51,21 @@ export const PRODUCTS: Product[] = [
     description: 'A brisa do mar transformada em sandália para o seu conforto máximo.'
   }
 ];
+
+export const STYLE_TIPS = [
+  {
+    title: 'Pôr do Sol no Arpoador',
+    tip: 'Combine sua Ipanema Rosa Glacê com um vestido de linho branco. A leveza do tecido natural ressalta a delicadeza dos tons pastéis.',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop'
+  },
+  {
+    title: 'Manhã de Domingo',
+    tip: 'O Azul Sereno vai perfeitamente com shorts jeans de lavagem clara e uma camisa de algodão aberta. Conforto casual para começar bem.',
+    image: 'https://images.unsplash.com/photo-1523350165414-082d792c90a1?q=80&w=2070&auto=format&fit=crop'
+  },
+  {
+    title: 'Chic Urbano',
+    tip: 'Experimente o Branco Pérola com calças pantacourt em tons terrosos. Um contraste sofisticado que mantém a essência solar.',
+    image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop'
+  }
+];
