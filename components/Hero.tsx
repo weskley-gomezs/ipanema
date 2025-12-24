@@ -57,6 +57,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
       case 'pink': return 'bg-pink-100/40';
       case 'blue': return 'bg-blue-100/40';
       case 'mint': return 'bg-green-100/40';
+      case 'lavender': return 'bg-purple-100/40';
       default: return 'bg-black/10';
     }
   };
@@ -66,6 +67,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
       case 'pink': return 'bg-pink-400';
       case 'blue': return 'bg-blue-400';
       case 'mint': return 'bg-green-400';
+      case 'lavender': return 'bg-purple-400';
       default: return 'bg-gray-900';
     }
   };
@@ -83,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
         {/* Animated Orbs */}
         <div className="absolute top-1/3 -left-20 w-96 h-96 bg-pink-200/30 rounded-full blur-[100px] animate-floating" />
         <div className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-blue-200/30 rounded-full blur-[120px] animate-floating" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-green-100/20 rounded-full blur-[150px] animate-floating" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-purple-100/20 rounded-full blur-[150px] animate-floating" style={{ animationDelay: '4s' }} />
       </div>
 
       <div className="container mx-auto px-6 z-10 flex flex-col items-center text-center">

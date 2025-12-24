@@ -20,6 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange }) => {
       case 'pink': return 'text-pink-400';
       case 'blue': return 'text-blue-400';
       case 'mint': return 'text-green-400';
+      case 'lavender': return 'text-purple-400';
       default: return 'text-gray-900';
     }
   };
@@ -68,6 +69,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange }) => {
               onClick={() => onThemeChange('mint')}
               className={`w-6 h-6 rounded-full bg-green-100 border-2 transition-all hover:scale-125 ${currentTheme === 'mint' ? 'border-green-400 scale-110' : 'border-transparent'}`}
               title="Tema Menta"
+            />
+            <button 
+              onClick={() => onThemeChange('lavender')}
+              className={`w-6 h-6 rounded-full bg-purple-200 border-2 transition-all hover:scale-125 ${currentTheme === 'lavender' ? 'border-purple-500 scale-110' : 'border-transparent'}`}
+              title="Tema Lavanda"
             />
           </div>
           

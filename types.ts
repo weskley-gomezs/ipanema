@@ -7,4 +7,4 @@ export interface Product {
   description: string;
 }
 
-export type SiteTheme = 'default' | 'pink' | 'blue' | 'mint';
+export type SiteTheme = 'default' | 'pink' | 'blue' | 'mint' | 'lavender';

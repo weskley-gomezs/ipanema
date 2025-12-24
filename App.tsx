@@ -19,6 +19,7 @@ const App: React.FC = () => {
       case 'pink': return 'theme-pink selection:bg-pink-100 selection:text-pink-600';
       case 'blue': return 'theme-blue selection:bg-blue-100 selection:text-blue-600';
       case 'mint': return 'theme-mint selection:bg-green-100 selection:text-green-600';
+      case 'lavender': return 'theme-lavender selection:bg-purple-100 selection:text-purple-600';
       default: return 'theme-default selection:bg-pink-100 selection:text-pink-600';
     }
   };
@@ -51,6 +52,7 @@ const App: React.FC = () => {
               theme === 'blue' ? 'bg-blue-50/20' : 
               theme === 'pink' ? 'bg-pink-50/20' : 
               theme === 'mint' ? 'bg-green-50/20' : 
+              theme === 'lavender' ? 'bg-purple-50/20' :
               'bg-gray-50/20'
             }`}>
               <div className="container mx-auto px-4 max-w-7xl">
@@ -61,6 +63,7 @@ const App: React.FC = () => {
                     theme === 'pink' ? 'bg-pink-300' : 
                     theme === 'blue' ? 'bg-blue-300' : 
                     theme === 'mint' ? 'bg-green-300' : 
+                    theme === 'lavender' ? 'bg-purple-300' :
                     'bg-gray-200'
                   }`}></div>
                 </div>
@@ -80,6 +83,7 @@ const App: React.FC = () => {
                     theme === 'pink' ? 'bg-pink-50' : 
                     theme === 'blue' ? 'bg-blue-50' : 
                     theme === 'mint' ? 'bg-green-50' : 
+                    theme === 'lavender' ? 'bg-purple-50' :
                     'bg-gray-50'
                   }`}>
                     <h2 className="text-4xl font-black text-gray-900 mb-6 font-hero">Ipanema Club</h2>
@@ -135,6 +139,7 @@ const App: React.FC = () => {
             theme === 'blue' ? 'bg-blue-50 border-blue-100' : 
             theme === 'pink' ? 'bg-pink-50 border-pink-100' : 
             theme === 'mint' ? 'bg-green-50 border-green-100' : 
+            theme === 'lavender' ? 'bg-purple-50 border-purple-100' :
             'bg-gray-50 border-gray-100'
           }`}>
             <div className="container mx-auto px-4 text-center">
@@ -142,6 +147,7 @@ const App: React.FC = () => {
                 theme === 'pink' ? 'text-pink-400' : 
                 theme === 'blue' ? 'text-blue-400' : 
                 theme === 'mint' ? 'text-green-400' : 
+                theme === 'lavender' ? 'text-purple-400' :
                 'text-pink-400'
               }`}>IPANEMA</span>
               <div className="flex flex-wrap justify-center gap-12 mb-20 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
