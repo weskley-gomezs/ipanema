@@ -25,7 +25,6 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
   const phrases = [
     "com leveza.",
     "com o pé direito.",
-    "em tons pastéis.",
     "com frescor."
   ];
 
@@ -56,11 +55,11 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
 
   const getOverlayColor = () => {
     switch (activeTheme) {
-      case 'pink': return 'bg-pink-100/30';
-      case 'blue': return 'bg-blue-100/30';
-      case 'mint': return 'bg-green-100/30';
-      case 'lavender': return 'bg-purple-100/30';
-      default: return 'bg-black/10';
+      case 'pink': return 'bg-pink-50/20';
+      case 'blue': return 'bg-blue-50/20';
+      case 'mint': return 'bg-green-50/20';
+      case 'lavender': return 'bg-purple-50/20';
+      default: return 'bg-white/10';
     }
   };
 
@@ -82,6 +81,11 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ backgroundImage: `url(${HERO_IMG_URL})` }}
         />
+        
+        {/* Camada de Opacidade Branca Leve (Mist Layer) */}
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+        
+        {/* Camada de Cor do Tema */}
         <div className={`absolute inset-0 transition-colors duration-1000 ${getOverlayColor()}`} />
         
         {/* Animated Orbs */}
@@ -91,14 +95,15 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
 
       <div className="container mx-auto px-6 z-10 flex flex-col items-center text-center">
         <div className="max-w-4xl">
-          <h2 className="text-white text-sm font-black uppercase tracking-[0.5em] mb-8 animate-fade-in drop-shadow-lg">
-            Coleção 2026 Pastéis
-          </h2>
-          
           <h1 className="flex flex-col items-center mb-10">
-            <span className="text-white font-hero text-6xl md:text-8xl lg:text-9xl leading-none drop-shadow-2xl">
-              Comece
-            </span>
+            <div className="flex items-baseline gap-4 md:gap-6 animate-fade-in">
+              <span className="text-gray-900 font-hero text-5xl md:text-7xl lg:text-8xl leading-none">
+                Comece
+              </span>
+              <span className="text-gray-900 font-black text-6xl md:text-8xl lg:text-9xl tracking-tighter italic">
+                2026
+              </span>
+            </div>
             <div className="relative mt-2 min-h-[1.2em]">
               <span className="text-brazil-gradient font-hero text-5xl md:text-7xl lg:text-8xl font-black drop-shadow-xl">
                 {text}
@@ -107,7 +112,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
             </div>
           </h1>
 
-          <p className="text-white text-lg md:text-xl max-w-2xl mx-auto mb-16 leading-relaxed font-medium drop-shadow-md px-4">
+          <p className="text-gray-800 text-lg md:text-xl max-w-2xl mx-auto mb-16 leading-relaxed font-medium drop-shadow-sm px-4">
             A essência solar do Rio traduzida em uma paleta suave e acolhedora. Desenhamos cada passo para que seu dia comece com a calma do horizonte.
           </p>
 
@@ -119,7 +124,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-60 animate-bounce text-white cursor-pointer" onClick={() => document.getElementById('colecao')?.scrollIntoView()}>
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-60 animate-bounce text-gray-800 cursor-pointer" onClick={() => document.getElementById('colecao')?.scrollIntoView()}>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
