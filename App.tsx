@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import CollectionCategories from './components/CollectionCategories';
 import VideoShowcase from './components/VideoShowcase';
 import ProductCard from './components/ProductCard';
-import AIAssistant from './components/AIAssistant';
 import LoadingScreen from './components/LoadingScreen';
 import { PRODUCTS } from './constants';
 import { SiteTheme } from './types';
@@ -54,11 +53,6 @@ const App: React.FC = () => {
                 </div>
               </div>
             </section>
-
-            {/* AI Assistant Section */}
-            <div className="py-16">
-              <AIAssistant />
-            </div>
 
             {/* Mission / About Section */}
             <section id="sobre" className="py-40 bg-white relative overflow-hidden">

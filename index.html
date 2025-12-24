@@ -72,7 +72,6 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       }
 
-      /* Removida a URL daqui para controlar via Hero.tsx e evitar delay de parsing do CSS */
       .ipanema-branded-bg {
         background-size: cover;
         background-position: center;
@@ -104,7 +103,6 @@
       }
       .animate-strike-hit { animation: strike-down 0.35s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
-      /* Shatter animations */
       @keyframes shatter-L { to { transform: translate(-200px, -150px) rotate(-45deg); opacity: 0; } }
       @keyframes shatter-O { to { transform: translate(200px, -150px) rotate(45deg); opacity: 0; } }
       .shatter-L { animation: shatter-L 0.6s forwards ease-out; }
@@ -122,11 +120,11 @@
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom": "https://esm.sh/react-dom@^19.2.3",
     "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/",
     "vite": "https://esm.sh/vite@^7.3.0",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
   }
 }
 </script>
