@@ -11,11 +11,21 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   const phrases = [
     "2026 com Ipanema",
     "com o pé direito"
   ];
+
+  const HERO_IMG_URL = 'https://i.imgur.com/xqxbWbK.png';
+
+  useEffect(() => {
+    // Força o carregamento da imagem via JS para garantir que o estado mude quando estiver pronta
+    const img = new Image();
+    img.src = HERO_IMG_URL;
+    img.onload = () => setImgLoaded(true);
+  }, []);
 
   useEffect(() => {
     const handleTyping = () => {
@@ -77,8 +87,11 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-20">
-      {/* Background Layer com imagem de praia vinda do CSS index.html */}
-      <div className="absolute inset-0 z-0 ipanema-branded-bg">
+      {/* Imagem de Fundo Otimizada */}
+      <div 
+        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${imgLoaded ? 'opacity-100' : 'opacity-0'} ipanema-branded-bg`}
+        style={{ backgroundImage: `url(${HERO_IMG_URL})` }}
+      >
         <div className={`absolute inset-0 transition-colors duration-1000 ${
           activeTheme === 'pink' ? 'bg-pink-200/30' : 
           activeTheme === 'blue' ? 'bg-blue-200/30' : 
@@ -86,10 +99,15 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
         }`}></div>
         <div className="ipanema-pattern absolute inset-0"></div>
         
-        {/* Soft Blobs - Reduzi opacidade para não cobrir a praia */}
+        {/* Soft Blobs */}
         <div className={`absolute top-1/4 left-1/4 w-[80vw] h-[80vw] rounded-full blur-[120px] opacity-10 transition-all duration-1000 ${activeTheme === 'pink' ? 'bg-pink-300' : activeTheme === 'blue' ? 'bg-blue-300' : 'bg-pink-100'}`}></div>
         <div className={`absolute bottom-1/4 right-1/4 w-[60vw] h-[60vw] rounded-full blur-[100px] opacity-10 transition-all duration-1000 ${activeTheme === 'pink' ? 'bg-blue-200' : activeTheme === 'blue' ? 'bg-pink-200' : 'bg-blue-50'}`}></div>
       </div>
+
+      {/* Cor de fundo enquanto carrega */}
+      {!imgLoaded && (
+        <div className="absolute inset-0 bg-pink-50 z-[-1]"></div>
+      )}
       
       <div className="container mx-auto px-6 z-10 flex flex-col items-center">
         <div className="text-center relative flex flex-col justify-center w-full max-w-5xl">
@@ -100,7 +118,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
             </div>
           </h1>
 
-          <p className="text-gray-800 text-base md:text-xl max-w-2xl mx-auto mt-8 mb-16 leading-relaxed font-semibold animate-fade-in px-4 tracking-wide drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
+          <p className="text-white text-base md:text-xl max-w-2xl mx-auto mt-8 mb-16 leading-relaxed font-semibold animate-fade-in px-4 tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
             A essência do Rio em tons pastéis. Uma coleção desenhada para trazer calma e sofisticação a cada passo do seu novo ano, inspirada no horizonte da praia.
           </p>
 
@@ -109,15 +127,15 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
               <span className="relative z-10">Ver Coleção</span>
             </a>
             
-            <a href="#sobre" className="group relative text-[10px] font-bold uppercase tracking-[0.4em] text-gray-900/80 hover:text-gray-900 transition-all py-2 overflow-hidden">
+            <a href="#sobre" className="group relative text-[10px] font-bold uppercase tracking-[0.4em] text-white hover:text-white transition-all py-2 overflow-hidden drop-shadow-md">
               <span className="relative z-10">Nossa História</span>
-              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gray-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </a>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-60 animate-bounce text-gray-800">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-60 animate-bounce text-white">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
