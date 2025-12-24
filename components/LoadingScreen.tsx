@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -8,6 +8,12 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [isHit, setIsHit] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowPrompt(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const word = "PÉ-ESQUERDO";
   const letters = word.split("");
@@ -15,7 +21,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const getShatterStyle = (index: number) => {
     if (!isHit) return {};
     const angle = (index / letters.length) * 360;
-    const distance = 400 + Math.random() * 200;
+    const distance = 500 + Math.random() * 300;
     const x = Math.cos(angle) * distance;
     const y = Math.sin(angle) * distance;
     const rotate = Math.random() * 720 - 360;
@@ -23,7 +29,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     return {
       transform: `translate(${x}px, ${y}px) rotate(${rotate}deg)`,
       opacity: 0,
-      transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+      transition: 'all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
     };
   };
 
@@ -33,34 +39,32 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     
     setTimeout(() => {
       setIsExiting(true);
-      setTimeout(onComplete, 600);
-    }, 1200);
+      setTimeout(onComplete, 800);
+    }, 1500);
   };
 
   return (
-    <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-700 overflow-hidden ${isExiting ? 'opacity-0' : 'opacity-100'}`}>
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-50 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
+    <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-1000 overflow-hidden ${isExiting ? 'opacity-0' : 'opacity-100'}`}>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-pink-50 rounded-full blur-[120px] opacity-40 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[40rem] h-[40rem] bg-blue-50 rounded-full blur-[120px] opacity-40 animate-pulse"></div>
       </div>
 
       <div 
         className="relative z-10 w-full max-w-4xl text-center p-10 cursor-pointer min-h-[500px] flex flex-col items-center justify-center" 
         onClick={handleHit}
       >
-        {!isHit && (
-          <div className="mb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            <h2 className="text-xl font-bold text-gray-400 uppercase tracking-[0.5em] mb-4">Ipanema</h2>
-            <p className="text-gray-300 text-sm tracking-widest uppercase">Afaste o azar para começar bem</p>
-          </div>
-        )}
+        <div className={`mb-12 transition-all duration-1000 ${showPrompt && !isHit ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-xl font-black text-gray-400 uppercase tracking-[0.5em] mb-4">Ipanema</h2>
+          <p className="text-gray-300 text-xs font-bold tracking-[0.3em] uppercase">Afaste o azar para começar o dia bem</p>
+        </div>
 
         <div className={`flex items-center justify-center flex-wrap gap-2 transition-transform duration-500 ${!isHit ? 'hover:scale-105 active:scale-95' : ''}`}>
           {letters.map((letter, index) => (
             <span 
               key={index}
               style={getShatterStyle(index)}
-              className={`text-5xl md:text-9xl font-black text-gray-900 tracking-tighter uppercase select-none transition-all duration-300 inline-block
+              className={`text-6xl md:text-9xl font-black text-gray-900 tracking-tighter uppercase select-none transition-all duration-300 inline-block
                 ${letter === '-' ? 'mx-4 opacity-10' : ''}
               `}
             >
@@ -80,12 +84,11 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
                 <circle cx="50" cy="15" r="4" fill="white" />
               </svg>
             </div>
-            <div className="absolute w-60 h-60 bg-pink-400/10 rounded-full animate-ping"></div>
           </div>
         )}
 
         <div className="absolute bottom-20 left-0 right-0 text-center">
-          <p className="text-pink-400 text-sm font-black tracking-[0.4em] uppercase animate-pulse">
+          <p className="text-pink-400 text-[10px] font-black tracking-[0.4em] uppercase">
             {isHit ? 'Pronto! Começando com o pé direito.' : 'Clique acima para entrar com o pé direito'}
           </p>
         </div>

@@ -13,17 +13,15 @@ const VideoShowcase: React.FC = () => {
             playsInline 
             className="w-full h-full object-cover"
           >
-            <source src="https://storage.googleapis.com/grendene-digital-commerce-landingpages/Ipanema/202511_VM_LG_Ipanema_AtualizacaoHome_Pluma_BannerHome_D.webm" type="video/webm" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-girl-walking-on-the-beach-at-sunset-1314-large.mp4" type="video/mp4" />
             Seu navegador não suporta vídeos.
           </video>
           
-          {/* Subtle Overlay to match site aesthetics */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
           
-          {/* Optional: Floating Brand Element */}
           <div className="absolute bottom-10 left-10 md:bottom-16 md:left-16">
-            <span className="text-white font-hero text-2xl md:text-4xl opacity-90 drop-shadow-lg">
-              Sinta a Leveza
+            <span className="text-white font-hero text-2xl md:text-5xl opacity-90 drop-shadow-lg italic">
+              Sinta a Leveza do Rio
             </span>
           </div>
         </div>
