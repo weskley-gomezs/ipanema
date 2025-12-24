@@ -8,8 +8,7 @@ import ProductCard from './components/ProductCard';
 import AIAssistant from './components/AIAssistant';
 import LoadingScreen from './components/LoadingScreen';
 import { PRODUCTS } from './constants';
-
-export type SiteTheme = 'default' | 'pink' | 'blue';
+import { SiteTheme } from './types';
 
 const App: React.FC = () => {
   const [showSite, setShowSite] = useState(false);

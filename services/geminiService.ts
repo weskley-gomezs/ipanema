@@ -1,7 +1,8 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+// Initialize the Gemini API client correctly using process.env.API_KEY
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const getFashionAdvice = async (userPrompt: string) => {
   try {
@@ -13,6 +14,7 @@ export const getFashionAdvice = async (userPrompt: string) => {
         temperature: 0.7,
       },
     });
+    // Accessing .text property directly as per the guidelines
     return response.text;
   } catch (error) {
     console.error("Gemini API Error:", error);

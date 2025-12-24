@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { SiteTheme } from '../App';
+// Correcting the import path for SiteTheme to point to types.ts
+import { SiteTheme } from '../types';
 
 interface CollectionCategoriesProps {
   theme: SiteTheme;

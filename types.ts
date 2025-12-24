@@ -12,3 +12,5 @@ export interface ChatMessage {
   role: 'user' | 'model';
   text: string;
 }
+
+export type SiteTheme = 'default' | 'pink' | 'blue';
