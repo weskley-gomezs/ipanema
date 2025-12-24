@@ -1,0 +1,7 @@
+{
+  "name": "Ipanema: Comece com o Pé Direito",
+  "description": "Uma experiência digital elegante e suave para a nova coleção Ipanema, focada em tons pastéis e no conforto de começar o dia bem.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
