@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { getFashionAdvice } from '../services/geminiService';
 import { SiteTheme } from '../types';
@@ -13,10 +12,10 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ theme }) => {
   const [loading, setLoading] = useState(false);
 
   const suggestions = [
-    "Look para o pôr do sol",
-    "Estilo casual chic",
-    "Como usar com linho?",
-    "Cores que combinam com azul"
+    "Look Verde Menta",
+    "Estilo com Lavanda",
+    "Pôr do sol no Rio",
+    "Como usar linho?",
   ];
 
   const handleSubmit = async (e?: React.FormEvent, manualPrompt?: string) => {
@@ -25,7 +24,8 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ theme }) => {
     if (!finalPrompt.trim()) return;
 
     setLoading(true);
-    setPrompt(finalPrompt);
+    if (manualPrompt) setPrompt(manualPrompt);
+    
     const advice = await getFashionAdvice(finalPrompt);
     setResponse(advice || "Nossa IA está pegando uma onda agora. Tente novamente em um instante!");
     setLoading(false);
@@ -85,7 +85,6 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ theme }) => {
             </p>
           </div>
 
-          {/* Suggestion Chips */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">
             {suggestions.map((s, idx) => (
               <button

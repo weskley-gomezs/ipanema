@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -22,6 +21,16 @@ const App: React.FC = () => {
       case 'mint': return 'theme-mint selection:bg-green-100 selection:text-green-600';
       case 'lavender': return 'theme-lavender selection:bg-purple-100 selection:text-purple-600';
       default: return 'theme-default selection:bg-pink-100 selection:text-pink-600';
+    }
+  };
+
+  const getButtonHoverClass = () => {
+    switch(theme) {
+      case 'pink': return 'hover:bg-pink-500';
+      case 'blue': return 'hover:bg-blue-500';
+      case 'mint': return 'hover:bg-green-600';
+      case 'lavender': return 'hover:bg-purple-500';
+      default: return 'hover:bg-gray-800';
     }
   };
 
@@ -93,9 +102,9 @@ const App: React.FC = () => {
                       <input 
                         type="email" 
                         placeholder="Seu melhor e-mail" 
-                        className="flex-1 px-8 py-5 rounded-full border-none focus:ring-2 focus:ring-pink-200 outline-none shadow-sm"
+                        className="flex-1 px-8 py-5 rounded-full border-none focus:ring-2 focus:ring-opacity-50 outline-none shadow-sm"
                       />
-                      <button className={`px-10 py-5 bg-gray-900 text-white rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-gray-800 transition-all shadow-xl ${
+                      <button className={`px-10 py-5 bg-gray-900 text-white rounded-full font-black uppercase tracking-widest text-[10px] transition-all shadow-xl ${getButtonHoverClass()} ${
                         theme === 'pink' ? 'focus:ring-pink-200' :
                         theme === 'blue' ? 'focus:ring-blue-200' :
                         theme === 'mint' ? 'focus:ring-green-200' :
