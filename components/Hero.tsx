@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { SiteTheme } from '../App';
 
 interface HeroProps {
@@ -13,19 +13,19 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
   const [typingSpeed, setTypingSpeed] = useState(150);
   const [imgLoaded, setImgLoaded] = useState(false);
 
+  const HERO_IMG_URL = 'https://i.imgur.com/xqxbWbK.png';
+
+  // Pré-carregamento imediato no ciclo de renderização
+  useMemo(() => {
+    const img = new Image();
+    img.src = HERO_IMG_URL;
+    img.onload = () => setImgLoaded(true);
+  }, [HERO_IMG_URL]);
+
   const phrases = [
     "2026 com Ipanema",
     "com o pé direito"
   ];
-
-  const HERO_IMG_URL = 'https://i.imgur.com/xqxbWbK.png';
-
-  useEffect(() => {
-    // Força o carregamento da imagem via JS para garantir que o estado mude quando estiver pronta
-    const img = new Image();
-    img.src = HERO_IMG_URL;
-    img.onload = () => setImgLoaded(true);
-  }, []);
 
   useEffect(() => {
     const handleTyping = () => {
@@ -87,9 +87,12 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-20">
-      {/* Imagem de Fundo Otimizada */}
+      {/* Camada de Gradiente de Fallback (aparece instantaneamente) */}
+      <div className="absolute inset-0 z-[-2] bg-gradient-to-br from-pink-50 via-white to-blue-50"></div>
+
+      {/* Imagem de Fundo Otimizada com Transição Suave */}
       <div 
-        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${imgLoaded ? 'opacity-100' : 'opacity-0'} ipanema-branded-bg`}
+        className={`absolute inset-0 z-0 transition-opacity duration-700 ipanema-branded-bg ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ backgroundImage: `url(${HERO_IMG_URL})` }}
       >
         <div className={`absolute inset-0 transition-colors duration-1000 ${
@@ -103,11 +106,6 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
         <div className={`absolute top-1/4 left-1/4 w-[80vw] h-[80vw] rounded-full blur-[120px] opacity-10 transition-all duration-1000 ${activeTheme === 'pink' ? 'bg-pink-300' : activeTheme === 'blue' ? 'bg-blue-300' : 'bg-pink-100'}`}></div>
         <div className={`absolute bottom-1/4 right-1/4 w-[60vw] h-[60vw] rounded-full blur-[100px] opacity-10 transition-all duration-1000 ${activeTheme === 'pink' ? 'bg-blue-200' : activeTheme === 'blue' ? 'bg-pink-200' : 'bg-blue-50'}`}></div>
       </div>
-
-      {/* Cor de fundo enquanto carrega */}
-      {!imgLoaded && (
-        <div className="absolute inset-0 bg-pink-50 z-[-1]"></div>
-      )}
       
       <div className="container mx-auto px-6 z-10 flex flex-col items-center">
         <div className="text-center relative flex flex-col justify-center w-full max-w-5xl">
