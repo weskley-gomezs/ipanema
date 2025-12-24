@@ -139,7 +139,7 @@ const App: React.FC = () => {
                 <div className="lg:w-1/2">
                   <div className="relative group">
                     <img 
-                      src="https://images.unsplash.com/photo-1590673885247-aa7f509ddfa4?q=80&w=2070&auto=format&fit=crop" 
+                      src="https://instagram.fbsb24-1.fna.fbcdn.net/v/t39.30808-6/580186951_1140609864947120_6024241684975467866_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzc2MzU3NjIxMjUwNTU3NDE2Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=D_v5dGbKdqEQ7kNvwHdzotN&_nc_oc=AdnVb5vJh3NCnwQ51ilzVokLLJ0bxpuh9YmYXWcNcUpN4tc3VHSoQXTHuQbyfyL2LN5eaIngFdQl1MjcIcRgcDZr&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbsb24-1.fna&_nc_gid=xev8ditGuwfOdFkdI8MwFQ&oh=00_Afk5d1hF5ID8KimfXvs_C1XxBWmbJCSX5fUwobz3q2_yPw&oe=69520B4A" 
                       alt="Estilo de vida Ipanema" 
                       className="rounded-[4rem] shadow-3xl relative z-10 w-full object-cover aspect-[4/5] transition-transform duration-[2s] group-hover:scale-105"
                     />

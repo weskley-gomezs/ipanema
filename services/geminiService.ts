@@ -3,13 +3,14 @@ import { GoogleGenAI } from "@google/genai";
 
 export const getFashionAdvice = async (userPrompt: string) => {
   try {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
+    // Fix: Check for API_KEY presence before initialization.
+    if (!process.env.API_KEY) {
       console.warn("API Key não encontrada. Verifique as configurações de ambiente.");
       return "Estou quase pronto para te dar dicas! Por favor, certifique-se de que a chave de API está configurada.";
     }
 
-    const ai = new GoogleGenAI({ apiKey });
+    // Fix: Using process.env.API_KEY directly in the constructor as per guidelines.
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: userPrompt,
@@ -29,6 +30,7 @@ export const getFashionAdvice = async (userPrompt: string) => {
       },
     });
     
+    // Fix: Accessing .text property directly (property, not method) as per SDK specifications.
     return response.text;
   } catch (error) {
     console.error("Gemini API Error:", error);
