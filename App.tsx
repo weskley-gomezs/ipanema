@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -5,7 +6,6 @@ import CollectionCategories from './components/CollectionCategories';
 import VideoShowcase from './components/VideoShowcase';
 import ProductCard from './components/ProductCard';
 import StyleInspirations from './components/StyleInspirations';
-import AIAssistant from './components/AIAssistant';
 import LoadingScreen from './components/LoadingScreen';
 import { PRODUCTS } from './constants';
 import { SiteTheme } from './types';
@@ -70,10 +70,7 @@ const App: React.FC = () => {
               
               <VideoShowcase />
 
-              {/* AI Assistant Section - A Helping Foot */}
-              <AIAssistant theme={theme} />
-
-              {/* Style Inspirations Section */}
+              {/* Inspirations Section */}
               <StyleInspirations theme={theme} />
             </div>
 
@@ -155,7 +152,7 @@ const App: React.FC = () => {
                   <h2 className="text-6xl font-black text-gray-900 mb-12 leading-[1.1] tracking-tighter font-hero">O amanhã começa com leveza.</h2>
                   <div className="space-y-10">
                     <p className="text-gray-500 text-xl leading-relaxed font-medium">
-                      A Ipanema nasceu nas areias do Rio para ganhar o mundo. Nossa missão é democratizar a moda, trazendo conforto e as cores do verão para o seu cotidiano, não importa onde você esteja.
+                      A Ipanema nasceu nas areias do Rio para ganhar o mundo. Nossa missão é democratizar a moda, trazendo conforto e as cores do verão para o seu cotidiano.
                     </p>
                     <p className="text-gray-500 text-xl leading-relaxed font-medium">
                       Compromisso real: Nossas sandálias são 100% veganas e recicláveis. Porque para começar com o pé direito, precisamos cuidar do chão que pisamos.
@@ -191,13 +188,6 @@ const App: React.FC = () => {
                 <a href="#" className="hover:text-gray-900 transition-colors">Sustentabilidade</a>
                 <a href="#" className="hover:text-gray-900 transition-colors">Lojas</a>
                 <a href="#" className="hover:text-gray-900 transition-colors">Fale Conosco</a>
-              </div>
-              <div className="flex justify-center space-x-12 mb-16">
-                {['Instagram', 'Facebook', 'Pinterest', 'YouTube'].map(social => (
-                  <a key={social} href="#" className="group relative text-gray-400 font-bold uppercase tracking-widest text-[10px] hover:text-gray-900 transition-all">
-                    {social}
-                  </a>
-                ))}
               </div>
               <p className="text-gray-300 text-[10px] font-medium uppercase tracking-[0.2em]">&copy; 2026 Ipanema - Grendene S/A. Inspirado pelo Sol do Rio.</p>
             </div>

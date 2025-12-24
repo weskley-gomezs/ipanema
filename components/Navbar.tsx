@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { SiteTheme } from '../types';
 
@@ -35,8 +36,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentTheme, onThemeChange }) => {
             Coleções
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#dicas" className="group relative text-[11px] font-bold uppercase tracking-[0.3em] text-gray-800 hover:text-pink-400 transition-colors">
-            Dicas IA
+          <a href="#estilo" className="group relative text-[11px] font-bold uppercase tracking-[0.3em] text-gray-800 hover:text-pink-400 transition-colors">
+            Estilo
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#sobre" className="group relative text-[11px] font-bold uppercase tracking-[0.3em] text-gray-800 hover:text-pink-400 transition-colors">
+            Sobre
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
           </a>
         </div>
