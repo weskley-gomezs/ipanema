@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { SiteTheme } from '../types';
 
@@ -12,7 +13,8 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
   const [typingSpeed, setTypingSpeed] = useState(150);
   const [imgLoaded, setImgLoaded] = useState(false);
 
-  const HERO_IMG_URL = 'https://i.imgur.com/xqxbWbK.png';
+  // Imagem de alta qualidade com cores pastéis e clima solar
+  const HERO_IMG_URL = 'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop';
 
   useMemo(() => {
     const img = new Image();
@@ -54,10 +56,10 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
 
   const getOverlayColor = () => {
     switch (activeTheme) {
-      case 'pink': return 'bg-pink-100/40';
-      case 'blue': return 'bg-blue-100/40';
-      case 'mint': return 'bg-green-100/40';
-      case 'lavender': return 'bg-purple-100/40';
+      case 'pink': return 'bg-pink-100/30';
+      case 'blue': return 'bg-blue-100/30';
+      case 'mint': return 'bg-green-100/30';
+      case 'lavender': return 'bg-purple-100/30';
       default: return 'bg-black/10';
     }
   };
@@ -73,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
   };
 
   return (
-    <section id="home" className="relative min-h-[110vh] flex items-center justify-center overflow-hidden pt-32 pb-40">
+    <section id="home" className="relative min-h-[110vh] flex items-center justify-center overflow-hidden pt-32 pb-40 bg-gray-50">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         <div 
@@ -83,9 +85,8 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
         <div className={`absolute inset-0 transition-colors duration-1000 ${getOverlayColor()}`} />
         
         {/* Animated Orbs */}
-        <div className="absolute top-1/3 -left-20 w-96 h-96 bg-pink-200/30 rounded-full blur-[100px] animate-floating" />
-        <div className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-blue-200/30 rounded-full blur-[120px] animate-floating" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-purple-100/20 rounded-full blur-[150px] animate-floating" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-1/3 -left-20 w-96 h-96 bg-pink-200/40 rounded-full blur-[100px] animate-floating" />
+        <div className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-blue-200/40 rounded-full blur-[120px] animate-floating" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container mx-auto px-6 z-10 flex flex-col items-center text-center">
@@ -118,7 +119,7 @@ const Hero: React.FC<HeroProps> = ({ activeTheme = 'default' }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-40 animate-bounce text-white cursor-pointer" onClick={() => document.getElementById('colecao')?.scrollIntoView()}>
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-60 animate-bounce text-white cursor-pointer" onClick={() => document.getElementById('colecao')?.scrollIntoView()}>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
