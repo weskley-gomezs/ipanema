@@ -1,7 +1,7 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize the Gemini API client correctly using process.env.API_KEY
+// Inicializa o cliente da API Gemini corretamente usando process.env.API_KEY
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const getFashionAdvice = async (userPrompt: string) => {
@@ -10,14 +10,24 @@ export const getFashionAdvice = async (userPrompt: string) => {
       model: 'gemini-3-flash-preview',
       contents: userPrompt,
       config: {
-        systemInstruction: "Você é um especialista em moda da Ipanema. O tema da campanha é 'Comece com o pé direito'. Use um tom acolhedor, leve e elegante. Sugira combinações de roupas que fiquem bem com sandálias em tons rosa pastel, azul pastel e branco. Mantenha o foco em conforto e estilo casual-chic.",
-        temperature: 0.7,
+        systemInstruction: `Você é o consultor de estilo oficial da Ipanema para a campanha 'Comece com o pé direito'. 
+        Seu objetivo é ajudar as pessoas a se sentirem leves, confiantes e elegantes usando a nova coleção em TONS PASTÉIS (Rosa Glacê, Azul Sereno e Branco Pérola).
+        
+        Diretrizes de Resposta:
+        1. Tom: Acolhedor, solar, sofisticado e otimista.
+        2. Foco: Conforto e moda casual-chic.
+        3. Recomendações: Sugira tecidos naturais como linho, algodão e seda que combinem com a leveza das sandálias.
+        4. Cores: Enfatize como os tons pastéis da Ipanema trazem calma e frescor ao look.
+        5. Tema: Sempre que possível, inclua uma frase inspiradora sobre começar o dia ou o ano com positividade.
+        
+        Mantenha as respostas concisas e visualmente organizadas.`,
+        temperature: 0.8,
       },
     });
-    // Accessing .text property directly as per the guidelines
+    
     return response.text;
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "Desculpe, tive um problema ao buscar sua dica de moda. Mas lembre-se: comece sempre com o pé direito!";
+    return "Não consegui formular uma dica agora, mas uma coisa é certa: com sua Ipanema nos pés, você já começou com o pé direito! Tente me perguntar novamente em um instante.";
   }
 };
